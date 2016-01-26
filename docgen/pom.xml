@@ -5,7 +5,7 @@
 	<groupId>com.docgen</groupId>
 	<artifactId>docgen</artifactId>
 	<version>1.0</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>docgen</name>
 	<url>http://maven.apache.org</url>
