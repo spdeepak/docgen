@@ -7,14 +7,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Test;
 
 import com.docgen.converters.ConvertDocxTo;
-import com.docgen.impl.DocxPropertiesImpl;
-import com.docgen.impl.DocxXmlMergeImpl;
-import com.docgen.model.DocxProperties;
-import com.docgen.model.DocxXmlMerge;
 
 /**
  * @author deepak.prabhakar
@@ -42,9 +39,9 @@ public class DocxXmlMergeImplTest {
 
     private static final String HTML_OUTPUT = OUTPUT_LOCATION + "CustomerOutput.html";
 
-    private DocxXmlMerge docxXmlMergeImpl = new DocxXmlMergeImpl();
+    private DocxXmlMergeImpl docxXmlMergeImpl = new DocxXmlMergeImpl();
 
-    private DocxProperties docxProperties = new DocxPropertiesImpl();
+    private DocxPropertiesImpl docxProperties = new DocxPropertiesImpl();
 
     @Test
     public void docxXmlMergeToGetDocxTest() throws IOException {
@@ -75,7 +72,7 @@ public class DocxXmlMergeImplTest {
 
     }
 
-    //    @AfterClass
+    @AfterClass
     public static void deleteFilesAfterCreation() {
         List<String> fileList = new ArrayList<String>();
         fileList.add(DOCX_OUTPUT);

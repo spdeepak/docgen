@@ -12,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.docgen.converters.ConvertDocxTo;
-import com.docgen.model.DocxXmlMerge;
 
 /**
  * Merges XML data with the provided docx tmeplate.
@@ -20,54 +19,36 @@ import com.docgen.model.DocxXmlMerge;
  * @author deepak.prabhakar
  *
  */
-public class DocxXmlMergeImpl implements DocxXmlMerge {
+public class DocxXmlMergeImpl {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DocxXmlMergeImpl.class);
 
-    @Override
     public void toGetDocx(FileInputStream docx_template_location, FileInputStream xml_data_location,
             FileOutputStream required_outputfile_name) {
         try {
             //Loads docx Template File
             WordprocessingMLPackage wordprocessingMLPackage = Docx4J.load(docx_template_location);
-
             // Do the binding:
-            // FLAG_NONE means that all the steps of the binding will be done,
-            // otherwise you could pass a combination of the following flags:
-            // FLAG_BIND_INSERT_XML: inject the passed XML into the document
-            // FLAG_BIND_BIND_XML: bind the document and the xml (including any OpenDope handling)
-            // FLAG_BIND_REMOVE_SDT: remove the content controls from the document (only the content remains)
-            // FLAG_BIND_REMOVE_XML: remove the custom xml parts from the document 
-
-            //Docx4J.bind(wordMLPackage, xmlStream, Docx4J.FLAG_NONE);
-            //If a document doesn't include the Opendope definitions, eg. the XPathPart,
-            //then the only thing you can do is insert the xml
-            //the example document binding-simple.docx doesn't have an XPathPart....
             Docx4J.bind(wordprocessingMLPackage, xml_data_location, Docx4J.FLAG_BIND_INSERT_XML
                     & Docx4J.FLAG_BIND_REMOVE_SDT);
             Docx4J.save(wordprocessingMLPackage, required_outputfile_name, Docx4J.FLAG_NONE);
-
         } catch (Docx4JException e) {
             LOGGER.error("Docx4j Library Exception: " + e);
         }
     }
 
-    @Override
     public void toGetDocx(String docx_template_location, String xml_data_location, String required_outputfile_name) {
         try {
             toGetDocx(new FileInputStream(docx_template_location), new FileInputStream(xml_data_location),
                     new FileOutputStream(required_outputfile_name));
-
         } catch (FileNotFoundException e) {
             LOGGER.error("This file is not present: " + e);
         }
 
     }
 
-    @Override
     public void toGetPdf(FileInputStream docx_template, FileInputStream xml_data, FileOutputStream resulting_pdf) {
         try {
-
             //Load Docx Template
             WordprocessingMLPackage wordprocessingMLPackage = Docx4J.load(docx_template);
             //Load XML Data into the above Docx Template
@@ -90,7 +71,6 @@ public class DocxXmlMergeImpl implements DocxXmlMerge {
         }
     }
 
-    @Override
     public void toGetPdf(String docx_template_location, String xml_data_location, String required_outputfile_name) {
         try {
             toGetPdf(new FileInputStream(docx_template_location), new FileInputStream(xml_data_location),
