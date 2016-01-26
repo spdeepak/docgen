@@ -129,5 +129,6 @@ public class DocxPropertiesImpl implements DocxProperties {
         }
 
         document.write(new FileOutputStream(folder + "asd.docx"));
+        document.close();
     }
 }
