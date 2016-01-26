@@ -1,4 +1,4 @@
-package com.apakgroup.docgen.converters;
+package com.docgen.converters;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

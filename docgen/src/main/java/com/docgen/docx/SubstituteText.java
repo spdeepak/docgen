@@ -1,4 +1,4 @@
-package com.apakgroup.docgen.docx;
+package com.docgen.docx;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -1,4 +1,4 @@
-package com.apakgroup.docgen.impl;
+package com.docgen.impl;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,8 +11,8 @@ import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.apakgroup.docgen.converters.ConvertDocxTo;
-import com.apakgroup.docgen.model.DocxXmlMerge;
+import com.docgen.converters.ConvertDocxTo;
+import com.docgen.model.DocxXmlMerge;
 
 /**
  * Merges XML data with the provided docx tmeplate.

@@ -1,4 +1,4 @@
-package com.apakgroup.docgen.impl;
+package com.docgen.impl;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,9 +10,11 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.apakgroup.docgen.converters.ConvertDocxTo;
-import com.apakgroup.docgen.model.DocxProperties;
-import com.apakgroup.docgen.model.DocxXmlMerge;
+import com.docgen.converters.ConvertDocxTo;
+import com.docgen.impl.DocxPropertiesImpl;
+import com.docgen.impl.DocxXmlMergeImpl;
+import com.docgen.model.DocxProperties;
+import com.docgen.model.DocxXmlMerge;
 
 /**
  * @author deepak.prabhakar
