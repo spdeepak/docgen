@@ -1,4 +1,4 @@
-# docgen
+# Docgen
 Merging docx template with XML data using content controls.
 
 #Converters
