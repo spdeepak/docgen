@@ -35,6 +35,7 @@ public class ConvertOdtTo {
 			OdfTextDocument odtFile = OdfTextDocument.loadDocument(inputodtfilepath);
 			XHTMLOptions htmlOptions = XHTMLOptions.create();
 			XHTMLConverter.getInstance().convert(odtFile, outputpdffilepath, htmlOptions);
+			
 		} catch (Exception e) {
 			LOGGER.error("Excpetion while convertinf ODT to HTML: " + e);
 		}
