@@ -1,4 +1,4 @@
-package com.docgen.impl;
+package com.docgen.features;
 
 import java.io.File;
 import java.io.FileInputStream;

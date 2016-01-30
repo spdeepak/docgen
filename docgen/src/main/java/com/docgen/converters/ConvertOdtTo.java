@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 
 import org.odftoolkit.odfdom.converter.pdf.PdfConverter;
 import org.odftoolkit.odfdom.converter.pdf.PdfOptions;
+import org.odftoolkit.odfdom.converter.xhtml.XHTMLConverter;
+import org.odftoolkit.odfdom.converter.xhtml.XHTMLOptions;
 import org.odftoolkit.odfdom.doc.OdfTextDocument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +26,17 @@ public class ConvertOdtTo {
 			PdfConverter.getInstance().convert(odtFile, outputpdffilepath, pdfOptions);
 		} catch (Exception e) {
 			LOGGER.error("Excpetion while convertinf ODT to PDF: " + e);
+		}
+
+	}
+	
+	public static void html(FileInputStream inputodtfilepath, FileOutputStream outputpdffilepath) {
+		try {
+			OdfTextDocument odtFile = OdfTextDocument.loadDocument(inputodtfilepath);
+			XHTMLOptions htmlOptions = XHTMLOptions.create();
+			XHTMLConverter.getInstance().convert(odtFile, outputpdffilepath, htmlOptions);
+		} catch (Exception e) {
+			LOGGER.error("Excpetion while convertinf ODT to HTML: " + e);
 		}
 
 	}

@@ -1,9 +1,11 @@
-package com.docgen.impl;
+package com.docgen.converters;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.Test;
@@ -20,15 +22,29 @@ public class ConvertOdtToTest {
 	
 	private static final String PDF_FILE = OUTPUT_FOLDER + "document.pdf";
 	
+	private static final String HTML_FILE = OUTPUT_FOLDER + "document.xhtml";
+	
 	@Test
 	public void ConverOdtToPdfTest() throws FileNotFoundException{
 		ConvertOdtTo.pdf(new FileInputStream(ODT_FILE), new FileOutputStream(PDF_FILE));
 	}
 	
+	@Test
+	public void ConverOdtToHtmlTest() throws FileNotFoundException{
+		ConvertOdtTo.html(new FileInputStream(ODT_FILE), new FileOutputStream(PDF_FILE));
+	}
+	
 	@AfterClass
 	public void deleteFilesAfterCreation(){
-		if(new File(PDF_FILE).exists()){
-			new File(PDF_FILE).delete();
+		List<String> fileList = new ArrayList<String>();
+		fileList.add(PDF_FILE);
+		fileList.add(HTML_FILE);
+		
+		for(String files:fileList){
+			if(new File(files).exists()){
+				new File(files).delete();
+			}
 		}
+		fileList.clear();
 	}
 }
