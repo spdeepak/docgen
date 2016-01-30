@@ -5,3 +5,4 @@ Merging docx template with XML data using content controls.
 1. docx to pdf
 2. docx to html
 3. odt to pdf
+4. odt to html
