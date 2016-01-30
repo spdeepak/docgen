@@ -12,6 +12,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.docgen.converters.ConvertDocxTo;
+import com.docgen.features.DocxProperties;
+import com.docgen.features.DocxXmlMerge;
 
 /**
  * @author deepak.prabhakar
@@ -39,9 +41,9 @@ public class DocxXmlMergeImplTest {
 
     private static final String HTML_OUTPUT = OUTPUT_LOCATION + "CustomerOutput.html";
 
-    private DocxXmlMergeImpl docxXmlMergeImpl = new DocxXmlMergeImpl();
+    private DocxXmlMerge docxXmlMergeImpl = new DocxXmlMerge();
 
-    private DocxPropertiesImpl docxProperties = new DocxPropertiesImpl();
+    private DocxProperties docxProperties = new DocxProperties();
 
     @Test
     public void docxXmlMergeToGetDocxTest() throws IOException {

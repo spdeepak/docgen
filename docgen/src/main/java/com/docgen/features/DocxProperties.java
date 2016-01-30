@@ -1,4 +1,4 @@
-package com.docgen.impl;
+package com.docgen.features;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,9 +19,9 @@ import org.slf4j.LoggerFactory;
  * @author deepak.prabhakar
  *
  */
-public class DocxPropertiesImpl {
+public class DocxProperties {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(DocxPropertiesImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(DocxProperties.class);
 
 	@SuppressWarnings("resource")
 	public int getPageCount(InputStream docx_filepath) throws IOException {
@@ -33,7 +33,7 @@ public class DocxPropertiesImpl {
 		return getPageCount(new FileInputStream(docx_filepath));
 	}
 
-	public static void removeTextFromDocx(FileInputStream inpudocxfile, String stringToBeReplaced,
+	public void removeTextFromDocx(FileInputStream inpudocxfile, String stringToBeReplaced,
 			String stringToBeReplacedWith, FileOutputStream outputdocxfile) {
 		XWPFDocument document = null;
 		try {

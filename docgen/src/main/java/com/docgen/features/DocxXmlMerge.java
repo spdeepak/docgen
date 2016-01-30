@@ -1,4 +1,4 @@
-package com.docgen.impl;
+package com.docgen.features;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,9 +19,9 @@ import com.docgen.converters.ConvertDocxTo;
  * @author deepak.prabhakar
  *
  */
-public class DocxXmlMergeImpl {
+public class DocxXmlMerge {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DocxXmlMergeImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DocxXmlMerge.class);
 
     public void toGetDocx(FileInputStream docx_template_location, FileInputStream xml_data_location,
             FileOutputStream required_outputfile_name) {
