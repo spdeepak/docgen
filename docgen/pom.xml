@@ -5,7 +5,6 @@
 	<groupId>com.docgen</groupId>
 	<artifactId>docgen</artifactId>
 	<version>1.0</version>
-	<packaging>war</packaging>
 
 	<name>docgen</name>
 	<url>http://maven.apache.org</url>
@@ -96,11 +95,6 @@
 			<groupId>fr.opensagres.xdocreport</groupId>
 			<artifactId>fr.opensagres.xdocreport.converter.odt.odfdom</artifactId>
 			<version>1.0.5</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.faces</groupId>
-			<artifactId>jsf-api</artifactId>
-			<version>2.1</version>
 		</dependency>
 	</dependencies>
 </project>
