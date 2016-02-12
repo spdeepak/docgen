@@ -3,6 +3,7 @@ package com.docgen.converters;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.OutputStream;
 
 import org.odftoolkit.odfdom.converter.pdf.PdfConverter;
 import org.odftoolkit.odfdom.converter.pdf.PdfOptions;
@@ -14,32 +15,33 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author deepak
+ *
  */
 public class ConvertOdtTo {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ConvertOdtTo.class);
+	private static final Logger logger = LoggerFactory.getLogger(ConvertOdtTo.class);
 
-	public static void pdf(FileInputStream inputodtfilepath, FileOutputStream outputpdffilepath) {
+	public static OutputStream pdf(FileInputStream inputOdtFilePath, FileOutputStream outputPdfFilePath) {
 		try {
-			OdfTextDocument odtFile = OdfTextDocument.loadDocument(inputodtfilepath);
+			OdfTextDocument odtFile = OdfTextDocument.loadDocument(inputOdtFilePath);
 			PdfOptions pdfOptions = PdfOptions.create();
-			PdfConverter.getInstance().convert(odtFile, outputpdffilepath, pdfOptions);
+			PdfConverter.getInstance().convert(odtFile, outputPdfFilePath, pdfOptions);
+			return outputPdfFilePath;
 		} catch (Exception e) {
-			LOGGER.error("Excpetion while convertinf ODT to PDF: " + e);
+			logger.error("Excpetion while convertinf ODT to PDF: " + e);
 		}
-
+		return null;
 	}
 	
-	public static void html(FileInputStream inputodtfilepath, FileOutputStream outputpdffilepath) {
+	public static OutputStream html(FileInputStream inputOdtFilePath, FileOutputStream outputHtmlFilePath) {
 		try {
-			OdfTextDocument odtFile = OdfTextDocument.loadDocument(inputodtfilepath);
+			OdfTextDocument odtFile = OdfTextDocument.loadDocument(inputOdtFilePath);
 			XHTMLOptions htmlOptions = XHTMLOptions.create();
-			XHTMLConverter.getInstance().convert(odtFile, outputpdffilepath, htmlOptions);
-			
+			XHTMLConverter.getInstance().convert(odtFile, outputHtmlFilePath, htmlOptions);
+			return outputHtmlFilePath;
 		} catch (Exception e) {
-			LOGGER.error("Excpetion while convertinf ODT to HTML: " + e);
-		}
-
+			logger.error("Excpetion while convertinf ODT to HTML: " + e);
+		}return null;
 	}
 
 }

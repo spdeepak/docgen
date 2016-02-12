@@ -12,7 +12,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.docgen.converters.ConvertDocxTo;
-import com.docgen.features.DocxProperties;
+import com.docgen.features.DocxUtil;
 import com.docgen.features.DocxXmlMerge;
 
 /**
@@ -43,7 +43,7 @@ public class DocxXmlMergeImplTest {
 
     private DocxXmlMerge docxXmlMergeImpl = new DocxXmlMerge();
 
-    private DocxProperties docxProperties = new DocxProperties();
+    private DocxUtil docxProperties = new DocxUtil();
 
     @Test
     public void docxXmlMergeToGetDocxTest() throws IOException {
