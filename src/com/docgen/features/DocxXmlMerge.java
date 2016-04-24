@@ -17,7 +17,7 @@ import com.docgen.converters.ConvertDocxTo;
 /**
  * Merges XML data with the provided docx template.
  * 
- * @author deepak.prabhakar
+ * @author Deepak
  *
  */
 public class DocxXmlMerge {

@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author deepak.prabhakar
+ * @author Deepak
  *
  */
 public class DocxUtil {
