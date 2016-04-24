@@ -13,6 +13,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>github-docx4j</id>
+			<url>https://github.com/plutext/docx4j/tree/mvn-repo/</url>
+		</repository>
+	</repositories>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -69,7 +76,7 @@
 		<dependency>
 			<groupId>org.docx4j</groupId>
 			<artifactId>docx4j</artifactId>
-			<version>3.2.2</version>
+			<version>3.3.0-RC</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
