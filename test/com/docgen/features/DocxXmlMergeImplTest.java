@@ -21,9 +21,9 @@ import com.docgen.features.DocxXmlMerge;
  */
 public class DocxXmlMergeImplTest {
 
-    private static final String INPUT_LOCATION = System.getProperty("user.dir") + "/src/test/resources/files/input/";
+    private static final String INPUT_LOCATION = System.getProperty("user.dir") + "/test-resources/files/input/";
 
-    private static final String OUTPUT_LOCATION = System.getProperty("user.dir") + "/src/test/resources/files/output/";
+    private static final String OUTPUT_LOCATION = System.getProperty("user.dir") + "/test-resources/files/output/";
 
     private static final String DOCX_INPUT = INPUT_LOCATION + "docxtemplate.docx";
 
