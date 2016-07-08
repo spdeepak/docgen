@@ -12,8 +12,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.docgen.converters.ConvertDocxTo;
-import com.docgen.features.DocxUtil;
-import com.docgen.features.DocxXmlMerge;
 
 /**
  * @author deepak.prabhakar
@@ -21,9 +19,9 @@ import com.docgen.features.DocxXmlMerge;
  */
 public class DocxXmlMergeImplTest {
 
-    private static final String INPUT_LOCATION = System.getProperty("user.dir") + "/test-resources/files/input/";
+    private static final String INPUT_LOCATION = System.getProperty("user.dir") + "/src/test/resources/files/input/";
 
-    private static final String OUTPUT_LOCATION = System.getProperty("user.dir") + "/test-resources/files/output/";
+    private static final String OUTPUT_LOCATION = System.getProperty("user.dir") + "/src/test/resources/files/output/";
 
     private static final String DOCX_INPUT = INPUT_LOCATION + "docxtemplate.docx";
 
@@ -40,6 +38,24 @@ public class DocxXmlMergeImplTest {
     private static final String NOTFOUND_PDF_OUTPUT = OUTPUT_LOCATION + "NotFoundCustomerOutput.pdf";
 
     private static final String HTML_OUTPUT = OUTPUT_LOCATION + "CustomerOutput.html";
+
+    @AfterClass
+    public static void deleteFilesAfterCreation() {
+        List<String> fileList = new ArrayList<>();
+        fileList.add(DOCX_OUTPUT);
+        fileList.add(PDF_OUTPUT);
+        fileList.add(HTML_OUTPUT);
+
+        for (String files : fileList) {
+            if (new File(files).exists()) {
+                new File(files).delete();
+            }
+        }
+
+        if (new File("hf.fo").exists()) {
+            Assert.assertTrue(new File("hf.fo").delete());
+        }
+    }
 
     private DocxXmlMerge docxXmlMergeImpl = new DocxXmlMerge();
 
@@ -72,23 +88,5 @@ public class DocxXmlMergeImplTest {
         Assert.assertTrue(!new File(NOTFOUND_INPUT).exists());
         Assert.assertTrue(!new File(NOTFOUND_PDF_OUTPUT).exists());
 
-    }
-
-    @AfterClass
-    public static void deleteFilesAfterCreation() {
-        List<String> fileList = new ArrayList<String>();
-        fileList.add(DOCX_OUTPUT);
-        fileList.add(PDF_OUTPUT);
-        fileList.add(HTML_OUTPUT);
-
-        for (String files : fileList) {
-            if (new File(files).exists()) {
-                new File(files).delete();
-            }
-        }
-
-        if (new File("hf.fo").exists()) {
-            Assert.assertTrue(new File("hf.fo").delete());
-        }
     }
 }
